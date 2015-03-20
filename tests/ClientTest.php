@@ -5,7 +5,7 @@
     * @backupStaticAttributes disabled
     */
 
-    require_once "src/Salon.php";
+    require_once "src/Stylist.php";
     require_once "src/Client.php";
 
     $DB = new PDO('pgsql:host=localhost;dbname=hair_salon_test');
@@ -15,21 +15,21 @@
         protected function tearDown()
         {
             Client::deleteAll();
-            Salon::deleteAll();
+            Stylist::deleteAll();
         }
 
         function test_getId()
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_id = 6;
             $client_name = "Bugs Bunny";
-            $salon_id = $test_salon->getId();
-            $test_client = new Client($client_id, $client_name, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_id, $client_name, $stylist_id);
 
             //Act
             $result = $test_client->getId();
@@ -42,14 +42,14 @@
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_id = 9;
             $client_name = "Tom Cruise";
-            $salon_id = $test_salon->getId();
-            $test_client = new Client($client_id, $client_name, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_id, $client_name, $stylist_id);
 
             //Act
             $test_client->setId(10);
@@ -63,14 +63,14 @@
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_id = 14;
             $client_name = "Will Ferrell";
-            $salon_id = $test_salon->getId();
-            $test_client = new Client($client_id, $client_name, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_id, $client_name, $stylist_id);
 
             //Act
             $result = $test_client->getClientName();
@@ -83,14 +83,14 @@
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_id = 18;
             $client_name = "Amy Pohler";
-            $salon_id = $test_salon->getId();
-            $test_client = new Client($client_id, $client_name, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_id, $client_name, $stylist_id);
 
             //Act
             $test_client->setClientName("Tina Fey");
@@ -100,42 +100,42 @@
             $this->assertEquals("Tina Fey", $result);
         }
 
-        function test_getSalonId()
+        function test_getStylistId()
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_id = 14;
             $client_name = "Jimmy Fallon";
-            $salon_id = $test_salon->getId();
-            $test_client = new Client($client_id, $client_name, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_id, $client_name, $stylist_id);
 
             //Act
-            $result = $test_client->getSalonId();
+            $result = $test_client->getStylistId();
 
             //Assert
-            $this->assertEquals($salon_id, $result);
+            $this->assertEquals($stylist_id, $result);
         }
 
-        function test_setSalonId()
+        function test_setStylistId()
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_id = 14;
             $client_name = "Jon Stewart";
-            $salon_id = $test_salon->getId();
-            $test_client = new Client($client_id, $client_name, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_id, $client_name, $stylist_id);
 
             //Act
-            $test_client->setSalonId(90);
-            $result = $test_client->getSalonId();
+            $test_client->setStylistId(90);
+            $result = $test_client->getStylistId();
 
             //Assert
             $this->assertEquals(90, $result);
@@ -145,13 +145,13 @@
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_name = "George Washington";
-            $salon_id = $test_salon->getId();
-            $test_client = new Client($id, $client_name, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($id, $client_name, $stylist_id);
 
             //Act
             $test_client->save();
@@ -165,17 +165,17 @@
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_name1 = "George Washington";
-            $salon_id = $test_salon->getId();
-            $test_client1 = new Client($id, $client_name1, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client1 = new Client($id, $client_name1, $stylist_id);
             $test_client1->save();
 
             $client_name2 = "Benjamin Franklin";
-            $test_client2 = new Client($id, $client_name2, $salon_id);
+            $test_client2 = new Client($id, $client_name2, $stylist_id);
             $test_client2->save();
 
             //Act
@@ -189,17 +189,17 @@
         {
             //Arrange
             $id = null;
-            $salon_name = "Aveda";
-            $test_salon = new Salon($id, $salon_name);
-            $test_salon->save();
+            $stylist_name = "Aveda";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
 
             $client_name1 = "George Washington";
-            $salon_id = $test_salon->getId();
-            $test_client1 = new Client($id, $client_name1, $salon_id);
+            $stylist_id = $test_stylist->getId();
+            $test_client1 = new Client($id, $client_name1, $stylist_id);
             $test_client1->save();
 
             $client_name2 = "Benjamin Franklin";
-            $test_client2 = new Client($id, $client_name2, $salon_id);
+            $test_client2 = new Client($id, $client_name2, $stylist_id);
             $test_client2->save();
 
             //Act

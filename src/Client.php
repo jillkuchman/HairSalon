@@ -4,15 +4,15 @@
     {
         private $id;
         private $client_name;
-        private $salon_id;
+        private $stylist_id;
 
-        function __construct ($id = null, $client_name, $salon_id)
+        function __construct ($id = null, $client_name, $stylist_id)
         {
             if($id !== null) {
                 $this->id = $id;
             }
             $this->client_name = $client_name;
-            $this->salon_id = $salon_id;
+            $this->stylist_id = $stylist_id;
         }
 
         function getId()
@@ -35,19 +35,19 @@
             $this->client_name = (string) $new_client_name;
         }
 
-        function getSalonId()
+        function getStylistId()
         {
-            return $this->salon_id;
+            return $this->stylist_id;
         }
 
-        function setSalonId($new_salon_id)
+        function setStylistId($new_stylist_id)
         {
-            $this->salon_id = (int) $new_salon_id;
+            $this->stylist_id = (int) $new_stylist_id;
         }
 
         function save()
         {
-            $statement = $GLOBALS['DB']->query("INSERT INTO clients (client_name, salon_id) VALUES ('{$this->getClientName()}', '{$this->getSalonId()}') RETURNING id;");
+            $statement = $GLOBALS['DB']->query("INSERT INTO clients (client_name, stylist_id) VALUES ('{$this->getClientName()}', {$this->getStylistId()}) RETURNING id;");
             $result = $statement->fetch(PDO::FETCH_ASSOC);
             $this->setId($result['id']);
         }
@@ -59,8 +59,8 @@
             foreach($returned_clients as $client) {
                 $id = $client['id'];
                 $client_name = $client['client_name'];
-                $salon_id = $client['salon_id'];
-                $new_client = new Client($id, $client_name, $salon_id);
+                $stylist_id = $client['stylist_id'];
+                $new_client = new Client($id, $client_name, $stylist_id);
                 array_push($clients, $new_client);
             }
             return $clients;
