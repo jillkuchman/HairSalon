@@ -35,7 +35,7 @@
             $test_salon = new Salon($id, $salon_name);
 
             //Act
-            $test_salon->setId(25)
+            $test_salon->setId(25);
             $result = $test_salon->getId();
 
             //Assert
