@@ -30,7 +30,7 @@
 
         function setSalonName($new_name)
         {
-            
+            $this->salon_name = (string) $new_name;
         }
 
     }
