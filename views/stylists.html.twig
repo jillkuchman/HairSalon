@@ -13,7 +13,7 @@
                 <p>Our Fine Stylists:</p>
                 <ul>
                     {% for stylist in stylists %}
-                        <li><a href="/stylist/{{ stylist.getId }}">{{ stylist.getStylistName }}</a></li>
+                        <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getStylistName }}</a></li>
                     {% endfor %}
                 </ul>
             {% endif %}

@@ -187,29 +187,29 @@
             $this->assertEquals([$test_stylist2], $result);
         }
 
-        // function test_getClients()
-        // {
-        //     //Arrange
-        //     $id = null;
-        //     $stylist_name = "George Washington";
-        //     $test_stylist = new Stylist($id, $stylist_name);
-        //     $test_stylist->save();
-        //
-        //     $client_name1 = "Thomas Jefferson";
-        //     $stylist_id = $test_stylist->getId();
-        //     $test_client1 = new Client($id, $client_name1, $stylist_id);
-        //     $test_client1->save();
-        //
-        //     $client_name2 = "Benjamin Franklin";
-        //     $test_client2 = new Client($id, $client_name2, $stylist_id);
-        //     $test_client2->save();
-        //
-        //     //Act
-        //     $result = $test_stylist->getClients();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_client1, $test_client2], $result);
-        // }
+        function test_getClients()
+        {
+            //Arrange
+            $id = null;
+            $stylist_name = "George Washington";
+            $test_stylist = new Stylist($id, $stylist_name);
+            $test_stylist->save();
+
+            $client_name1 = "Thomas Jefferson";
+            $stylist_id = $test_stylist->getId();
+            $test_client1 = new Client($id, $client_name1, $stylist_id);
+            $test_client1->save();
+
+            $client_name2 = "Benjamin Franklin";
+            $test_client2 = new Client($id, $client_name2, $stylist_id);
+            $test_client2->save();
+
+            //Act
+            $result = $test_stylist->getClients();
+
+            //Assert
+            $this->assertEquals([$test_client1, $test_client2], $result);
+        }
 
     }
 

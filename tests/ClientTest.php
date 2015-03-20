@@ -209,6 +209,35 @@
             //Assert
             $this->assertEquals([], $result);
         }
+
+        // function test_find()
+        // {
+        //     //Arrange
+        //     $id = null;
+        //     $stylist_name1 = "Aveda";
+        //     $test_stylist1 = new Stylist($id, $stylist_name1);
+        //     $test_stylist1->save();
+        //
+        //     $stylist_name2 = "Hair";
+        //     $test_stylist_2 = new Stylist($id, $stylist_name2);
+        //     $test_stylist_2->save();
+        //
+        //     $client_name1 = "George Washington";
+        //     $stylist_id1 = $test_stylist1->getId();
+        //     $test_client1 = new Client($id, $client_name1, $stylist_id1);
+        //     $test_client1->save();
+        //
+        //     $client_name2 = "Benjamin Franklin";
+        //     $stylist_id2 = $test_stylist2->getId();
+        //     $test_client2 = new Client($id, $client_name2, $stylist_id2);
+        //     $test_client2->save();
+        //
+        //     //Act
+        //     $result = Client::find($test_stylist1->getId());
+        //
+        //     //Assert
+        //     $this->assertEquals([$test_client1], $result);
+        // }
     }
 
 ?>
