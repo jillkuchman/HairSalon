@@ -15,6 +15,11 @@
             $this->salon_id = $salon_id;
         }
 
+        function getId()
+        {
+        
+        }
+
     }
 
 ?>
