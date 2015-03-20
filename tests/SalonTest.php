@@ -26,7 +26,22 @@
             //Assert
             $this->assertEquals(1, $result);
         }
-         
+
+        function test_setId()
+        {
+            //Arrange
+            $id = 23;
+            $salon_name = "Great Clips";
+            $test_salon = new Salon($id, $salon_name);
+
+            //Act
+            $test_salon->setId(25)
+            $result = $test_salon->getId();
+
+            //Assert
+            $this->assertEquals(25, $result);
+        }
+
     }
 
 ?>
