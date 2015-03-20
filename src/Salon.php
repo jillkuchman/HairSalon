@@ -71,6 +71,12 @@
             return $found_salon;
         }
 
+        function updateName($new_salon_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE salons SET salon_name = '{$new_salon_name}' WHERE id = {$this->getId()};");
+            $this->setSalonName($new_salon_name);
+        }
+
     }
 
 ?>

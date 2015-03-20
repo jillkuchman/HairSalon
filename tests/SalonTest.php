@@ -156,7 +156,7 @@
             $id = 1;
             $salon_name = "Hair Saloon";
             $test_salon = new Salon($id, $salon_name);
-            $test_salon->save;
+            $test_salon->save();
             $new_salon_name = "Wild Hair";
 
             //Act
