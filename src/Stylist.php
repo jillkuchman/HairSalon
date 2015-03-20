@@ -80,7 +80,22 @@
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id={$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE stylist_id={$this->getId()};");
         }
+
+        // function getClients()
+        // {
+        //     $clients = array();
+        //     $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients WHERE sylist_id = {$this->getId()};");
+        //     foreach($returned_clients as $client) {
+        //         $id = $client['id'];
+        //         $client_name = $client['client_name'];
+        //         $stylist_id = $client['stylist_id'];
+        //         $new_client = new Client($id, $client_name, $stylist_id);
+        //         array_push($clients, $new_client);
+        //     }
+        //     return $clients;
+        // }
 
     }
 
