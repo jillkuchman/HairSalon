@@ -150,6 +150,23 @@
             $this->assertEquals($test_salon1, $result);
         }
 
+        function test_updateName()
+        {
+            //Arrange
+            $id = 1;
+            $salon_name = "Hair Saloon";
+            $test_salon = new Salon($id, $salon_name);
+            $test_salon->save;
+            $new_salon_name = "Wild Hair";
+
+            //Act
+            $test_salon->updateName($new_salon_name);
+            $result = $test_salon->getSalonName();
+
+            //Assert
+            $this->assertEquals("Wild Hair", $result);
+        }
+
     }
 
 ?>
