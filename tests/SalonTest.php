@@ -12,6 +12,10 @@
 
     class SalonTest extends PHPUnit_Framework_TestCase
     {
+        protected function tearDown()
+        {
+            Salon::deleteAll();
+        }
 
         function test_getId()
         {
