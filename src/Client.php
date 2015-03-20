@@ -20,6 +20,11 @@
             return $this->id;
         }
 
+        function setId()
+        {
+            
+        }
+
     }
 
 ?>
