@@ -57,6 +57,22 @@
 
         }
 
+        function test_setSalonName()
+        {
+            //Arrange
+            $id = 20;
+            $salon_name = "Great Clips";
+            $test_salon = new Salon($id, $salon_name);
+
+            //Act
+            $test_salon->setSalonName("eClips");
+            $result = $test_salon->getSalonName();
+
+            //Assert
+            $this->assertEquals("eClips", $result);
+
+        }
+
     }
 
 ?>

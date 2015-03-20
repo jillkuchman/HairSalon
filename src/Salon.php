@@ -28,6 +28,11 @@
             return $this->salon_name;
         }
 
+        function setSalonName($new_name)
+        {
+            
+        }
+
     }
 
 ?>
