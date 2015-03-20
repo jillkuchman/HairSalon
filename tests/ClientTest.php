@@ -72,6 +72,27 @@
             //Assert
             $this->assertEquals("Will Ferrell", $result);
         }
+
+        function test_setClientName()
+        {
+            //Arrange
+            $id = null;
+            $salon_name = "Aveda";
+            $test_salon = new Salon($id, $salon_name);
+            $test_salon->save();
+
+            $client_id = 18;
+            $client_name = "Amy Pohler";
+            $salon_id = $test_salon->getId();
+            $test_client = new Client($client_id, $client_name, $salon_id);
+
+            //Act
+            $test_client->setClientName("Tina Fey");
+            $result = $test_client->getClientName();
+
+            //Assert
+            $this->assertEquals("Tina Fey", $result);
+        }
     }
 
 ?>
