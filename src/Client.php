@@ -71,23 +71,6 @@
             $GLOBALS['DB']->exec("DELETE FROM clients *;");
         }
 
-        // static function find($search_id)
-        // {
-        //     $found_clients = array();
-        //     $clients = Client::getAll();
-        //     foreach ($clients as $client) {
-        //         $
-        //     }
-        //
-        //     $stylists = Stylist::getAll();
-        //     foreach ($stylists as $stylist) {
-        //         $salon_id = $stylist->getId();
-        //         if ($salon_id == $search_id) {
-        //             $found_stylist = $stylist;
-        //         }
-        //     }
-        //     return $found_stylist;
-        // }
     }
 
 ?>
