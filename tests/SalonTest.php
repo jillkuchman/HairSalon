@@ -30,7 +30,7 @@
         function test_setId()
         {
             //Arrange
-            $id = 23;
+            $id = null;
             $salon_name = "Great Clips";
             $test_salon = new Salon($id, $salon_name);
 
@@ -45,7 +45,7 @@
         function test_getSalonName()
         {
             //Arrange
-            $id = 14;
+            $id = null;
             $salon_name = "Great Clips";
             $test_salon = new Salon($id, $salon_name);
 
@@ -60,7 +60,7 @@
         function test_setSalonName()
         {
             //Arrange
-            $id = 20;
+            $id = null;
             $salon_name = "Great Clips";
             $test_salon = new Salon($id, $salon_name);
 
@@ -71,6 +71,60 @@
             //Assert
             $this->assertEquals("eClips", $result);
 
+        }
+
+        function test_save()
+        {
+            //Arrange
+            $id = null;
+            $salon_name = "Aveda";
+            $test_salon = new Salon($id, $salon_name);
+
+            //Act
+            $test_salon->save();
+            $result = Salon::getAll();
+
+            //Assert
+            $this->assertEquals($test_salon, $result[0]);
+        }
+
+        function test_getAll()
+        {
+            //Arrange
+            $id1 = null;
+            $salon_name1 = "Paul Mitchell";
+            $id2 = null;
+            $salon_name2 = "Hair Pun";
+            $test_salon1 = new Salon($id1, $salon_name1);
+            $test_salon1->save();
+            $test_salon2 = new Salon($id2, $salon_name2);
+            $test_salon2->save();
+
+            //Act
+            $result = Salon::getAll();
+
+            //Assert
+            $this->assertEquals([$test_salon1, $test_salon2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            //Arrange
+            $id1 = null;
+            $salon_name1 = "Paul Mitchell";
+            $id2 = null;
+            $salon_name2 = "Hair Pun";
+            $test_salon1 = new Salon($id1, $salon_name1);
+            $test_salon1->save();
+            $test_salon2 = new Salon($id2, $salon_name2);
+            $test_salon2->save();
+
+            //Act
+            Salon::deleteAll();
+            $result = Salon::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
         }
 
     }

@@ -33,6 +33,21 @@
             $this->salon_name = (string) $new_name;
         }
 
+        function save()
+        {
+
+        }
+
+        static function getAll()
+        {
+
+        }
+
+        static function deleteAll()
+        {
+
+        }
+
     }
 
 ?>
