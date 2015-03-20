@@ -42,6 +42,21 @@
             $this->assertEquals(25, $result);
         }
 
+        function test_getSalonName()
+        {
+            //Arrange
+            $id = 14;
+            $salon_name = "Great Clips";
+            $test_salon = new Salon($id, $salon_name);
+
+            //Act
+            $result = $test_salon->getSalonName();
+
+            //Assert
+            $this->assertEquals("Great Clips", $result);
+
+        }
+
     }
 
 ?>

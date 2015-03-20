@@ -23,6 +23,11 @@
             $this->id = (int) $new_id;
         }
 
+        function getSalonName()
+        {
+            
+        }
+
     }
 
 ?>
