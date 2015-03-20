@@ -6,7 +6,17 @@
     <body>
         <div class="container">
             <h1>PHP</h1>
-            <h2>PHP Hair Professionals</h2>            
+            <h2>PHP Hair Professionals</h2>
+
+            {% if stylists is not empty %}
+                <p>Our Fine Stylists:</p>
+                <ul>
+                    {% for stylist in stylists %}
+                        <li>{{ stylist.getStylistName }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
         </div>
     </body>
 </html>
