@@ -93,6 +93,26 @@
             //Assert
             $this->assertEquals("Tina Fey", $result);
         }
+
+        function test_getSalonId()
+        {
+            //Arrange
+            $id = null;
+            $salon_name = "Aveda";
+            $test_salon = new Salon($id, $salon_name);
+            $test_salon->save();
+
+            $client_id = 14;
+            $client_name = "Jimmy Fallon";
+            $salon_id = $test_salon->getId();
+            $test_client = new Client($client_id, $client_name, $salon_id);
+
+            //Act
+            $result = $test_client->getSalonId();
+
+            //Assert
+            $this->assertEquals($salon_id, $result);
+        }
     }
 
 ?>
