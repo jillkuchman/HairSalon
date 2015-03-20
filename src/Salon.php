@@ -58,6 +58,11 @@
             $GLOBALS['DB']->exec("DELETE FROM salons *;");
         }
 
+        static function find($search_id)
+        {
+            
+        }
+
     }
 
 ?>

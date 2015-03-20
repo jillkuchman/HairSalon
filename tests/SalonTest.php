@@ -131,6 +131,25 @@
             $this->assertEquals([], $result);
         }
 
+        function test_find()
+        {
+            //Arrange
+            $id1 = 1;
+            $salon_name1 = "Super Cuts";
+            $id2 = 2;
+            $salon_name2 = "Great Clips";
+            $test_salon1 = new Salon($id1, $salon_name1);
+            $test_salon1->save();
+            $test_salon2 = new Salon($id2, $salon_name2);
+            $test_salon2->save();
+
+            //Act
+            $result = Salon::find($test_salon1->getId());
+
+            //Assert
+            $this->assertEquals($test_salon1, $result);
+        }
+
     }
 
 ?>
