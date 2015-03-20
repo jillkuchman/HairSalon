@@ -1,11 +1,12 @@
 <html>
     <head>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <title></title>
+        <title>{{ stylist.getStylistName }}</title>
     </head>
     <body>
         <div class = "container">
-            <h1>Edit Stylist Page for {{ stylist.getStylistName }}</h1>
+            <h1>{{ stylist.getStylistName }}</h1>
+            <h2>Edit this stylist</h2>
 
             <form action="/stylists/{{ stylist.getId }}" method="post">
                 <input type="hidden" name="_method" value="patch">
