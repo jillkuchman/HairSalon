@@ -60,7 +60,15 @@
 
         static function find($search_id)
         {
-            
+            $found_salon = null;
+            $salons = Salon::getAll();
+            foreach ($salons as $salon) {
+                $salon_id = $salon->getId();
+                if ($salon_id == $search_id) {
+                    $found_salon = $salon;
+                }
+            }
+            return $found_salon;
         }
 
     }
