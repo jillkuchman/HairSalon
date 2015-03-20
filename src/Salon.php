@@ -25,7 +25,7 @@
 
         function getSalonName()
         {
-            
+            return $this->salon_name;
         }
 
     }
