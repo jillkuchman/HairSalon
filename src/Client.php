@@ -3,15 +3,15 @@
     class Client
     {
         private $id;
-        private $name;
+        private $client_name;
         private $salon_id;
 
-        function __construct ($id = null, $name, $salon_id)
+        function __construct ($id = null, $client_name, $salon_id)
         {
             if($id !== null) {
                 $this->id = $id;
             }
-            $this->name = $name;
+            $this->client_name = $client_name;
             $this->salon_id = $salon_id;
         }
 
