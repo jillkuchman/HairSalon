@@ -30,6 +30,11 @@
             return $this->client_name;
         }
 
+        function setClientName($new_client_name)
+        {
+            $this->client_name = (string) $new_client_name;
+        }
+
     }
 
 ?>
