@@ -77,6 +77,11 @@
             $this->setSalonName($new_salon_name);
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM salons WHERE id={$this->getId()};");
+        }
+
     }
 
 ?>
