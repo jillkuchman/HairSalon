@@ -40,6 +40,11 @@
             return $this->salon_id;
         }
 
+        function setSalonId($new_salon_id)
+        {
+            $this->salon_id = (int) $new_salon_id;
+        }
+
     }
 
 ?>

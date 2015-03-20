@@ -113,6 +113,27 @@
             //Assert
             $this->assertEquals($salon_id, $result);
         }
+
+        function test_setSalonId()
+        {
+            //Arrange
+            $id = null;
+            $salon_name = "Aveda";
+            $test_salon = new Salon($id, $salon_name);
+            $test_salon->save();
+
+            $client_id = 14;
+            $client_name = "Jon Stewart";
+            $salon_id = $test_salon->getId();
+            $test_client = new Client($client_id, $client_name, $salon_id);
+
+            //Act
+            $test_client->setSalonId(90);
+            $result = $test_client->getSalonId();
+
+            //Assert
+            $this->assertEquals(90, $result);
+        }
     }
 
 ?>
