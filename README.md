@@ -17,11 +17,13 @@ Run your PHP server from the <strong>web</strong> folder.
 
 In the terminal, start postgres by running the command "postgres" in the project folder. In another terminal window, start psql with the command "psql". Run these commands in the psql window to set up the database:
 
-CREATE DATABASE hair_salon;
-\c hair_salon;
-CREATE TABLE stylists (id serial PRIMARY KEY, stylist_name varchar);
-CREATE TABLE clients (id serial PRIMARY KEY, client_name varchar, stylist_id int);
-CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
+<ul>
+<li>CREATE DATABASE hair_salon;</li>
+<li>\c hair_salon;</li>
+<li>CREATE TABLE stylists (id serial PRIMARY KEY, stylist_name varchar);</li>
+<li>CREATE TABLE clients (id serial PRIMARY KEY, client_name varchar, stylist_id int);</li>
+<li>CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;</li>
+</ul>
 
 --
 
