@@ -13,6 +13,11 @@
             $this->salon_name = $salon_name;
         }
 
+        function getId()
+        {
+            return $this->id;
+        }
+
     }
 
 ?>
