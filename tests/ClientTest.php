@@ -21,15 +21,16 @@
             $test_salon = new Salon($id, $salon_name);
             $test_salon->save();
 
+            $client_id = 6;
             $client_name = "Bugs Bunny";
             $salon_id = $test_salon->getId();
-            $test_client = new Client($id, $client_name, $salon_id);
+            $test_client = new Client($client_id, $client_name, $salon_id);
 
             //Act
             $result = $test_client->getId();
 
             //Assert
-            $this->assertEquals(true, is_numeric($result));
+            $this->assertEquals(6, $result);
         }
     }
 
