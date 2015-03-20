@@ -25,6 +25,11 @@
             $this->id = (int) $new_id;
         }
 
+        function getClientName()
+        {
+            return $this->client_name;
+        }
+
     }
 
 ?>
