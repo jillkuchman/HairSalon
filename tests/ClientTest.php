@@ -12,6 +12,12 @@
 
     class ClientTest extends PHPUnit_Framework_TestCase
     {
+        protected function tearDown()
+        {
+            Client::deleteAll();
+            Salon::deleteAll();
+        }
+
         function test_getId()
         {
             //Arrange
@@ -133,6 +139,75 @@
 
             //Assert
             $this->assertEquals(90, $result);
+        }
+
+        function test_save()
+        {
+            //Arrange
+            $id = null;
+            $salon_name = "Aveda";
+            $test_salon = new Salon($id, $salon_name);
+            $test_salon->save();
+
+            $client_name = "George Washington";
+            $salon_id = $test_salon->getId();
+            $test_client = new Client($id, $client_name, $salon_id);
+
+            //Act
+            $test_client->save();
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals($test_client, $result[0]);
+        }
+
+        function test_getAll()
+        {
+            //Arrange
+            $id = null;
+            $salon_name = "Aveda";
+            $test_salon = new Salon($id, $salon_name);
+            $test_salon->save();
+
+            $client_name1 = "George Washington";
+            $salon_id = $test_salon->getId();
+            $test_client1 = new Client($id, $client_name1, $salon_id);
+            $test_client1->save();
+
+            $client_name2 = "Benjamin Franklin";
+            $test_client2 = new Client($id, $client_name2, $salon_id);
+            $test_client2->save();
+
+            //Act
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([$test_client1, $test_client2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            //Arrange
+            $id = null;
+            $salon_name = "Aveda";
+            $test_salon = new Salon($id, $salon_name);
+            $test_salon->save();
+
+            $client_name1 = "George Washington";
+            $salon_id = $test_salon->getId();
+            $test_client1 = new Client($id, $client_name1, $salon_id);
+            $test_client1->save();
+
+            $client_name2 = "Benjamin Franklin";
+            $test_client2 = new Client($id, $client_name2, $salon_id);
+            $test_client2->save();
+
+            //Act
+            Client::deleteAll();
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
         }
     }
 
