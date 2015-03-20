@@ -33,7 +33,7 @@
     $app->get("/stylist/{id}", function($id) use ($app)
     {
         $stylist = Stylist::find($id);
-        return $app['twig']->render('stylist.html.twig', array ('stylist' => $stylist));
+        return $app['twig']->render('stylist.html.twig', array ('stylist' => $stylist, 'clients' => Client::getAll()));
     });
 
     return $app;
