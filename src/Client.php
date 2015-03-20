@@ -35,6 +35,11 @@
             $this->client_name = (string) $new_client_name;
         }
 
+        function getSalonId()
+        {
+            return $this->salon_id;
+        }
+
     }
 
 ?>
